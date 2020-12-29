@@ -1,0 +1,566 @@
+            /*--Creamos una variable en css para facilitar los estilos--*/
+            
+             :root {
+                --color1: rgb(219, 144, .5);
+                --color2: rgba(23, 180, 83, 0.877);
+                --color3: rgba(11, 194, 211, 0.623);
+                --fondo: #f2f2f2;
+                --titulos: 33px;
+                --margenes: 60px;
+                --espacios: 10px;
+                --espacios-contenido: 45px;
+            }
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'open sans';
+                /*Le ponemos ese color a la pagina*/
+                background: var(--fondo);
+            }
+            
+            img {
+                vertical-align: top;
+            }
+            /*----preloader----*/
+            
+            .hidden {
+                overflow: hidden;
+            }
+            /*Esto va a centrar el peyloader -- es parte del peadloader---*/
+            
+            .centrado {
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                /*con el backgroud hara que el pyloader tenga un fondo negro*/
+                background: #000;
+                /*el z-index: 100;  nos ayuda a desaparecer todo de la pagina 
+cuando recargemos, para que solo aparesca el payloader de carga*/
+                z-index: 100;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            /*---------Aqui ira la animacion de carga del peolader------------*/
+            
+            .lds-facebook {
+                display: inline-block;
+                position: relative;
+                width: 80px;
+                height: 80px;
+            }
+            
+            .lds-facebook div {
+                display: inline-block;
+                position: absolute;
+                left: 8px;
+                width: 16px;
+                background: #cef;
+                animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+            }
+            
+            .lds-facebook div:nth-child(1) {
+                left: 6px;
+                animation-delay: -0.24s;
+            }
+            
+            .lds-facebook div:nth-child(2) {
+                left: 26px;
+                animation-delay: -0.12s;
+            }
+            
+            .lds-facebook div:nth-child(3) {
+                left: 45px;
+                animation-delay: 0;
+            }
+            
+            @keyframes lds-facebook {
+                0% {
+                    top: 6px;
+                    height: 51px;
+                }
+                50%,
+                100% {
+                    top: 19px;
+                    height: 26px;
+                }
+            }
+            /*--------------------------------------------------------------*/
+            /*Ahora trabajaremos con el header, para darle un degradado*/
+            
+            header {
+                width: 100%;
+                height: 600px;
+                background: linear-gradient(to bottom, rgba(211, 135, 20, .6), rgba(29, 241, 171, .6), rgba(7, 109, 150, .45)), url(img/fondo-programacion\ \(2\).jpg);
+                background-attachment: fixed;
+                background-position: center;
+                background-size: cover;
+            }
+            
+            nav {
+                width: 100%;
+                position: fixed;
+                /*Lo que va hacer el box-shadow es hacernos una caja donde se aloja nuestro menu y su color sera transparente con sombreado;*/
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+            }
+            
+            .nav1 {
+                background: transparent;
+                height: 80px;
+                color: #fff;
+            }
+            
+            .nav2 {
+                background: var(--fondo);
+                height: 100px;
+                color: #000;
+            }
+            
+            .contenedor-nav {
+                display: flex;
+                margin: auto;
+                width: 90%;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 1000px;
+                /*el inherit hace que herede el color el contenedor nav a su padre que es el nav uno, osea que si      
+es transparente cuando baje el contenedor de nav sera de color blanco*/
+                height: inherit;
+                overflow: hidden;
+            }
+            /*Ahora modificamos las anclas (los enlaces del nav) 
+de nuestro navegacion de servicios en nuestro menu de inicio*/
+            
+            nav .enlaces a {
+                display: inline-block;
+                padding: 5px 0;
+                margin-right: 17px;
+                font-size: 17px;
+                font-weight: 300;
+                /*Con el tex decoration none le quitamos las lineas de abajo 
+que se ponen en los textos osea su decoracion automatica*/
+                text-decoration: none;
+                border-bottom: 3px solid transparent;
+                /*Con el color inherit le decimos que herada los colores de 
+los nav 1 o 2 que son sus padres cuando bagemos de la pag*/
+                color: inherit;
+            }
+            /*Recuerda que los hover sirven para cambiar de color
+cuando pasemos el cursor sobre los enlases,imagenes o texto*/
+            
+            nav .enlaces a:hover {
+                /* con el border-bottom: 3px solid #1498a4; le decimos que 
+cuando pasemos el cursor sobre los enlases/texto, aparesca
+un borde/linea abajo de color azulado#1498a4*/
+                border-bottom: 3px solid #1498a4;
+                transition: 0.6s;
+            }
+            
+            .logo,
+            .logo img {
+                height: 80px;
+            }
+            
+            .icono {
+                display: none;
+                font-size: 25px;
+                padding: 23.5px 20px;
+            }
+            
+            .textos {
+                /*A los textos del menu de inicio el de mi nombre 
+y el de nuestra agencia que es agencia de desarrollo web
+le vamos a dar un ancho del 100%, un largo del 100%
+y lo vamos a centrar*/
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                color: #fff;
+                overflow: hidden;
+                text-align: center;
+            }
+            /*Le vamos a dar ese tamaño al texto h1=Informatica con cesar*/
+            
+            .textos>h1 {
+                font-size: 80px;
+                ;
+            }
+            /*le vamos a dar este tamaño al texto h2 
+de=agencia de desarrollo web*/
+            
+            .textos>h2 {
+                font-size: 30px;
+                font-weight: 300;
+            }
+            /*--main--*/
+            /*Lo que va hacer es que va alinear y acomodar todo
+lo que tengamos en las clses contenedores,ya sea imagenes o texto*/
+            
+            .contenedor {
+                margin: auto;
+                /*le asignamos la variable que tenemos para los margenes que es de 60px*/
+                padding: var(--margenes)0;
+                width: 90%;
+                max-width: 1000px;
+                /*Para que todo este centrado*/
+                text-align: center;
+                overflow: hidden;
+            }
+            /*Ahora vamos a darle estilos a los textos de tamaño 
+h3 que estan adentro de nuestros contenedores*/
+            
+            .contenedor h3 {
+                font-size: var(--titulos);
+                color: var(--color1);
+                margin-bottom: var(--espacios);
+            }
+            /*Ahora vamos a darle estilos a los elementpos p 
+osea parrafos que esten adentro de un contenedor*/
+            
+            .contenedor p {
+                /*le damos este tamaño*/
+                font-size: var(--subtitulos);
+                font-weight: 300;
+                /*le damos este color*/
+                color: var(--color1);
+            }
+            /*Aqui le asigno que todos los parrafos que tengan 
+la clase after, le agrege una caja en este caso 
+una linea de color naranga abajo*/
+            
+            .after::after {
+                content: '';
+                display: block;
+                margin: auto;
+                margin-top: var(--espacios);
+                width: 100px;
+                height: 2px;
+                background: var(--color1);
+                margin-bottom: var(--espacios-contenido);
+            }
+            /*Ahora le vamos a dar un estilo de una tarjeta a las imagenes que creamos con la clase card */
+            
+            .card {
+                display: flex;
+                /*Esto cirve para centrara la card de mi imagen en medio el justify-content: center;*/
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            /*al igual a su contenido*/
+            
+            .content-card {
+                width: 31%;
+                box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+                overflow: hidden;
+                height: 400px;
+            }
+            
+            .people {
+                height: 80%;
+            }
+            /*le ponemos un tamaño a las imagenes  de nuestra clase
+content-card*/
+            
+            .content-card img {
+                /*Le damos un ancho de 100%*/
+                width: 100%;
+                /*Le damos un largo de 100%*/
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            .texto-team {
+                height: 20%;
+                width: 100%;
+                padding: var(--espacios) 0;
+            }
+            /*----En el apartado aboute y sus servicios-----*/
+            
+            .about {
+                /*Con esto le daremos un backgraun pero con la imagen del teclado 
+que tenemos para que este en el about*/
+                background: url(img/teclado.jpg);
+                height: auto;
+            }
+            
+            .servicios {
+                display: flex;
+                color: #fff;
+                justify-content: space-between;
+                margin: auto;
+                /*El flex wrap hara que el apartado de servicio
+no aparesca en vorma de linia si no que este horisontalmente*/
+                flex-wrap: wrap;
+            }
+            /*Con esto le indicamos que las 3 cjas de servicios que tenemos
+esten con un ancho del 30% cada una y su margen es automatico y su texto centrado*/
+            
+            .caja-servicios {
+                width: 30%;
+                margin: auto;
+                text-align: center;
+            }
+            /*Aqui indicamos que los titulos de tamaño h4 tengan este espaciado*/
+            
+            .caja-servicios>h4 {
+                margin-bottom: var(--espacios);
+            }
+            /*Aqui le indicamos que los parrafos que esten en los servicios
+esten centrados*/
+            
+            .caja-servicios>p {
+                text-align: center;
+            }
+            
+            .botones-work {
+                overflow: hidden;
+            }
+            /*Ahora vamos a transformar los listados(<li>) en botones*/
+            
+            .botones-work li {
+                display: inline-block;
+                text-align: center;
+                margin-left: var(--espacios);
+                margin-bottom: var(--espacios-contenido);
+                padding: 6px 12px;
+                border: 1px solid var(--color1);
+                list-style: none;
+                color: var(--color1);
+            }
+            /*Recuerda que los hover sirven para que al pasar el cursor por ensima de un boton
+texto o imagen cambie de color*/
+            
+            .botones-work li:hover {
+                background: var(--color1);
+                color: #fff;
+                cursor: pointer;
+            }
+            
+            .botones-work .active {
+                background: var(--color1);
+                color: #fff;
+            }
+            /*Ahora vamos a trasformar las imagenes que tenemos como galerias en forma de card*/
+            
+            .galeria-work {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            
+            .galeria-work .cont-work {
+                width: 31%;
+                box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+                height: 300px;
+                overflow: hidden;
+                margin-bottom: var(--espacios-contenido);
+            }
+            
+            .img-work {
+                height: 90%;
+                width: 100%;
+            }
+            
+            .img-work img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+            
+            .textos-work {
+                height: 10%;
+            }
+            
+            .textos-work h4 {
+                line-height: 30px;
+                font-weight: 300;
+            }
+            /*footer*/
+            /*El footer como backgroud tendra una imagen de un teclado*/
+            
+            footer {
+                background: url(img/teclado.jpg);
+            }
+            
+            .iconos {
+                display: flex;
+                margin: auto;
+                justify-content: space-around;
+                width: 100%;
+            }
+            
+            .fab {
+                font-size: 60px;
+                color: #FFF;
+                margin-bottom: var(--espacios);
+                display: inline-block;
+            }
+            
+            footer p {
+                margin-top: var(--espacios);
+            }
+            /*En el apartado de footer donde se aloga los iconos de las redes sociales
+crea unas anclas y su clase la llame a*/
+            
+            .a {
+                font-size: 18px;
+                color: #fff;
+                padding: 0 5px;
+            }
+            
+            @media screen and (max-width: 700px) {
+                /*Cuando la pantalla llegue a 700px el texto de nuestro navdonde se aloja el menu de
+servicios,equipo,contacto,etc se pondra en blanco*/
+                .nav2 {
+                    color: #fff;
+                }
+                /*Creamos una clase que se llama icono donde se aloja un icono de menu
+cuando llegue a 700px la pagina aparecera ese menu con este codijo*/
+                .icono {
+                    /*Con el display: block hace que nos muestre el icono*/
+                    display: block;
+                    /*Con el cursor pointer le decimos que cuando pasemos el cursor ensima
+del boton menu aparesca una manita para que paresca boton */
+                    cursor: pointer;
+                }
+                /*Con los enlaces le decimos que cuando llegue a 700px la pagina
+los ensaces de nuestro nav que son servicios,equipo,contacto se ponga 
+en posicion de lista primero rompiendo el flex con el codijo de position: fiex*/
+                .enlaces {
+                    /*con el position: fiex romple los flex osea que si los enlaces de servicios
+eqipo,contacto,etc con flex estaban en horisontal, con el position fiex los pone
+en vertical en forma de lista*/
+                    position: fixed;
+                    top: 80px;
+                    /*el contorno que tendra los enlaces de nuestro nav sera colo azul fuerte*/
+                    background: #2c3e50;
+                    /*con el left: 0; le decimos que esos enlaces se posicionen 
+completamente a la derecha*/
+                    left: 0;
+                    /*le decimos que ocupe una altura del 100% cuando llegue a 700px, osea que abarcara 
+toda la pagina*/
+                    height: 100%;
+                    transition: 1s;
+                    /*con el  width: 0; y el overflow: hidden; haran que cuando llegue a 700px la pagina
+desaparesca los enlaces de servicio, equipo, contactro, trabajo*/
+                    width: 0;
+                    overflow: hidden;
+                }
+                .enlaces a {
+                    /*con el display: block; y el width: 100% le decimos que los ponga
+los enlaces uno de bajo del otro en forma de lista*/
+                    display: block;
+                    /*tendra un ancho del 100%*/
+                    width: 100%;
+                    height: 50px;
+                    padding: 20px;
+                    /*con el text-align: center; va hacer que aline los enlaces que los centre*/
+                    text-align: center;
+                    background: #34495e;
+                    color: #fff;
+                }
+                /*Vamos a decirle que cuando llegue a un tamaño de 700px los textos
+del h1 tendran un tamaño de 70px y los textos del h2 tendran 35 px*/
+                .textos>h1 {
+                    font-size: 70px;
+                }
+                .textos>h2 {
+                    font-size: 35px;
+                }
+                /*------------------------------------------------------------*/
+                /*Y a las imagenes del apartado del equipo y galerias cuando llege 
+a un dispositivo tamaño de 700px tendra ese tamaño*/
+                .content-card {
+                    width: 48%;
+                    /*y tendra este espacio que sera de 30 px cuando 
+llegue a un tamaño de 700px la pag*/
+                    margin-bottom: var(--margenes);
+                }
+                 :root {
+                    /*cuando la pagina llegue a 700 px los margenes que creamos en nuestra variable
+en vez de tener 60px tendra 30px*/
+                    --margenes: 30px;
+                }
+            }
+            
+            @media screen and (max-width: 500px) {
+                 :root {
+                    --espacios-contenido: 25px;
+                }
+                .content-card {
+                    width: 90%;
+                }
+                .caja-servicios {
+                    width: 90%;
+                    margin-bottom: var(--margenes);
+                }
+                .cont-work {
+                    width: 85%;
+                }
+                .marca-logo {
+                    width: 80%;
+                }
+                .iconos {
+                    margin: auto;
+                }
+            }
+            /*--------------------------------------- Creamos el estilo para el formulario de contacto -----------------------------------------------*/
+            
+            input {
+                width: 300px;
+                height: 35px;
+            }
+            
+            textarea {
+                width: 400px;
+                height: 100px;
+                margin-top: 5px;
+            }
+            
+            input,
+            textarea {
+                background: transparent;
+                border: solid 2px #fff;
+                color: #fff;
+            }
+            /*Para cambiar el color del texto del boton enviar*/
+            
+            input[type=submit] {
+                color: #fff;
+            }
+            
+             ::-webkit-input-placeholder {
+                color: #fff;
+            }
+            /*le agregamos un hover al boton para que cuando pasemos por ensima de el cambie a un color verde*/
+            
+            input[type=submit]:hover {
+                background: rgb(25, 121, 81);
+                cursor: pointer;
+            }
+            /*------------Este es un link con las anclas que le pusimos como texto abajo en el apartado de las fotos de la galeria--------*/
+            
+            .galeria-links {
+                text-decoration: none;
+                text-align: center;
+                line-height: 30px;
+                font-weight: 300;
+                background: salmon;
+                display: block;
+                padding: 0.1px;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 20px;
+            }
+            
+            .galeria-links:hover {
+                background: rgb(250, 93, 75);
+            }
